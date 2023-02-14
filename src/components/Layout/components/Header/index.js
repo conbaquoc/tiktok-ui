@@ -11,7 +11,6 @@ import {
     faCircleQuestion,
     faKeyboard,
     faLanguage,
-    faCloudUpload,
     faUser,
     faCoins,
     faGear,
@@ -26,6 +25,8 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { Effects, Inbox, Messages, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -62,7 +63,7 @@ const MENU_ITEMS = [
 
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
-    const currentUser = true;
+    const currentUser = false;
 
     useEffect(() => {
         setTimeout(() => {
@@ -139,11 +140,26 @@ function Header() {
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
-                                <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
-                                </button>
-                            </Tippy>
+                            <Button className={cx('upload-btn')} text leftIcon={<FontAwesomeIcon icon={faAdd} />}>
+                                Upload
+                            </Button>
+                            <div className={cx('icon-user-login')}>
+                                <Tippy delay={[0, 100]} content="Create effects" placement="bottom">
+                                    <button className={cx('action-btn')}>
+                                        <Effects />
+                                    </button>
+                                </Tippy>
+                                <Tippy delay={[0, 100]} content="Messages" placement="bottom">
+                                    <button className={cx('action-btn')}>
+                                        <Messages />
+                                    </button>
+                                </Tippy>
+                                <Tippy delay={[0, 100]} content="Inbox" placement="bottom">
+                                    <button className={cx('action-btn')}>
+                                        <Inbox />
+                                    </button>
+                                </Tippy>
+                            </div>
                         </>
                     ) : (
                         <>
@@ -155,15 +171,23 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 alt="Nguyen Van A"
-                                src="https://upload.wikimedia.org/wikipedia/commons/7/77/Avatar_cat.png"
+                                src="https://upload.wikimedia.org/wikipedia/commons/7/77/Avatar_cat.ng"
+                                fallback="https://vivureviews.com/wp-content/uploads/2022/02/among-us-profile-picture.jpg"
                             />
                         ) : (
-                            <button className={cx('more-btn')}>
-                                <FontAwesomeIcon icon={faEllipsisVertical} />
-                            </button>
+                            <div className={cx('more-more')}>
+                                <Tippy delay={[0, 100]} content="Create effects" placement="bottom">
+                                    <button className={cx('btn-eff')}>
+                                        <Effects />
+                                    </button>
+                                </Tippy>
+                                <button className={cx('more-btn')}>
+                                    <FontAwesomeIcon icon={faEllipsisVertical} />
+                                </button>
+                            </div>
                         )}
                     </Menu>
                 </div>

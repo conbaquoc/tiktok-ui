@@ -29,6 +29,7 @@
     position: relative;
     height: var(--search-height);
     padding-left: 16px;
+    margin-left: 100px;
     background-color: #1618230f;
     border-radius: var(--search-border-radius);
     border: 1.5px solid transparent;
@@ -99,16 +100,17 @@
 }
 
 //Actions
-.action {
+.actions {
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .more-btn {
     font-size: 2rem;
-    margin-left: 28px;
+    margin-left: 18px;
     background: transparent;
-    padding: 4px 8px;
+    padding: 9px 8px;
     cursor: pointer;
 }
 
@@ -118,8 +120,28 @@
     color: #161823;
     padding: 4px 12px;
     cursor: pointer;
+    margin-left: 1px;
 }
 
+.upload-btn {
+    margin-right: 23px;
+    width: 113px;
+    height: 36px;
+}
+
+.icon-user-login {
+    display: flex;
+    margin-top: 10px;
+}
+.btn-eff {
+    margin-left: 20px;
+    background-color: transparent;
+}
+
+.more-more {
+    display: flex;
+    margin-top: 4px;
+}
 .user-avatar {
     height: 32px;
     width: 32px;
