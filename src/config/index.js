@@ -1,6 +1,11 @@
 import routes from './routes';
+import accounts from './accounts';
+import localStorage from './localStorage';
 
-const config = {
+const configs = {
     routes,
+    accounts,
+    localStorage,
 };
-export default config;
+
+export default configs;

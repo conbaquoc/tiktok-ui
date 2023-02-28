@@ -5,20 +5,24 @@ import SuggAccountItem from './SuggAccountItem';
 
 const cx = classNames.bind(styles);
 
-function SuggestedAccounts({ label }) {
+function SuggestedAccounts({ label, data = [], onViewChange, isSeeAll = false }) {
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
-            <SuggAccountItem />
-            <SuggAccountItem />
-            <SuggAccountItem />
-            <p className={cx('more-btn')}>See all</p>
+            {data.map((account) => (
+                <SuggAccountItem key={account.id} data={account} />
+            ))}
+
+            <p className={cx('more-btn')} onClick={() => onViewChange(!isSeeAll)}>
+                {isSeeAll ? 'See less' : 'See all'}
+            </p>
         </div>
     );
 }
 
 SuggestedAccounts.propTypes = {
     label: PropTypes.string.isRequired,
+    data: PropTypes.array,
 };
 
 export default SuggestedAccounts;

@@ -1,15 +1,20 @@
 import { Fragment } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { publicRoutes } from '~/routes/routes';
-import DefaultLayout from '~/layouts';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import { publicRoutes } from './routes';
+import { DefaultLayout } from './layouts';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
     return (
-        <Router>
+        <HashRouter>
             <div className="App">
+                <ScrollToTop />
                 <Routes>
                     {publicRoutes.map((route, index) => {
+                        // component
                         const Page = route.component;
+
+                        // Layout
                         let Layout = DefaultLayout;
 
                         if (route.layout) {
@@ -17,6 +22,7 @@ function App() {
                         } else if (route.layout === null) {
                             Layout = Fragment;
                         }
+
                         return (
                             <Route
                                 key={index}
@@ -31,7 +37,7 @@ function App() {
                     })}
                 </Routes>
             </div>
-        </Router>
+        </HashRouter>
     );
 }
 

@@ -1,0 +1,38 @@
+.wrapper {
+    border-top: 1px solid #e3e3e4;
+}
+
+.item {
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 17px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.line-one {
+    margin-top: 10px;
+}
+
+.line-one,
+.line-two,
+.line-three {
+    margin-bottom: 10px;
+}
+
+.copyright {
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 17px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
+}
